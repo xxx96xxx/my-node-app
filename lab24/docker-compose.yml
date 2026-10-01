@@ -1,0 +1,26 @@
+services:
+  mongodb:
+    image: mongo:8
+    container_name: lab24-mongodb
+    restart: unless-stopped
+    volumes:
+      - mongodb_data:/data/db
+
+  app:
+    build: .
+    container_name: lab24-koa
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017
+      MONGODB_DB: bbmo_01_23
+      PORT: 3000
+      GROUP: BBMO-01-23
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN}
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:
