@@ -21,7 +21,9 @@
     "jsonwebtoken": "^9.0.3",
     "koa": "^3.2.1",
     "koa-bodyparser": "^4.4.1",
+    "mongodb": "^7.7.0",
     "mysql2": "^3.24.5",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "ws": "^8.22.0"
   }
 }
