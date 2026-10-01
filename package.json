@@ -1,22 +1,56 @@
+
 {
   "name": "my-node-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "CLI application for laboratory work 17",
+  "type": "module",
+  "main": "bin/cli.mjs",
+  "bin": {
+    "my-cli": "./bin/cli.mjs"
   },
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "start": "node bin/cli.mjs",
+    "cli": "node bin/cli.mjs",
+    "init": "node bin/cli.mjs init",
+    "build": "node bin/cli.mjs build",
+    "test": "node --test",
+    "deploy": "node bin/cli.mjs deploy",
+    "test:cli": "node --test tests/cli.test.mjs",
+    "lab17:task1": "node cli.js",
+    "lab17:task2": "node cli2.mjs --help",
+    "lab17:task3": "node init.mjs init",
+    "lab17:task4": "node process.mjs process"
+  },
+  "keywords": [
+    "node",
+    "cli",
+    "commander",
+    "inquirer",
+    "laboratory"
+  ],
+  "author": "Сычевский Максим Васильевич",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "archiver": "^8.0.0",
-    "compression": "^1.8.2",
-    "express": "^5.2.1",
-    "express-rate-limit": "^8.7.0",
-    "joi": "^18.2.9",
-    "jsonwebtoken": "^9.0.3",
-    "swagger-ui-express": "^5.0.1"
+    "archiver": "^7.0.1",
+    "bcryptjs": "^3.0.2",
+    "chalk": "^6.0.1",
+    "cli-progress": "^3.12.0",
+    "commander": "^15.0.0",
+    "compression": "^1.8.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "express-validator": "^7.2.1",
+    "inquirer": "^14.2.2",
+    "jsonwebtoken": "^9.0.2",
+    "koa": "^3.0.1",
+    "@koa/router": "^14.0.0",
+    "koa-bodyparser": "^4.4.1",
+    "mysql2": "^3.15.0",
+    "ora": "^9.4.1",
+    "swagger-jsdoc": "^6.2.8"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "pkg": "^5.8.1"
   }
 }
