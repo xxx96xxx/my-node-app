@@ -1,0 +1,11 @@
+{
+  "name": "sample-cli",
+  "version": "1.0.0",
+  "description": "Проект типа cli",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test"
+  },
+  "options": []
+}
