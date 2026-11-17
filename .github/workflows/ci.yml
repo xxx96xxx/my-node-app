@@ -1,3 +1,4 @@
+
 name: Lab24 CI
 
 on:
@@ -11,6 +12,24 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:8
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.adminCommand(\"ping\")'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      MONGODB_URI: mongodb://127.0.0.1:27017
+      MONGODB_DB: bbmo_01_23
+      PORT: 3000
+      GROUP: BBMO-01-23
+      JWT_SECRET: ci_test_secret_key
 
     steps:
       - name: Checkout repository
@@ -39,3 +58,6 @@ jobs:
           node --check models/user.js
           node --check controllers/users.js
           node --check controllers/auth.js
+          node --check middleware/auth.js
+          node --check routes/auth.js
+          node --check config/swagger.js
